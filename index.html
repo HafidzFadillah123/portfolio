@@ -71,35 +71,34 @@
             <div class="card">
               <div class="card-block">
                 <h2>Tugas</h2>
-                <div class="row">
-                  <div class="col-md-4">
+                <input type="text" id="searchInput" placeholder="Cari tugas..." onkeyup="searchTasks()" />
+                <div class="row" id="taskContainer">
+                  <div class="col-md-4 task-item">
                     <a href="form login/index.html" target="_blank">
-                      ><img src="./assets/images/login.png" class="img-responsive" alt="" />
+                      <img src="./assets/images/login.png" class="img-responsive" alt="" />
                       <h3 class="h5">Form login</h3></a
                     >
                   </div>
-                  <div class="col-md-4">
-                    <a href="kalkulator/index.html" target="_blank">>
+                  <div class="col-md-4 task-item">
+                    <a href="kalkulator/index.html" target="_blank">
                       <img src="./assets/images/kalku.png" class="img-responsive" alt="" />
                       <h3 class="h5">Kalkulator</h3>
                     </a>
                   </div>
-                  <div class="col-md-4">
-                    <a href="k-wd-dashboard/public/index.html" target="_blank">>
+                  <div class="col-md-4 task-item">
+                    <a href="k-wd-dashboard/public/index.html" target="_blank">
                       <img src="./assets/images/dbadmin.png" class="img-responsive" alt="" />
                       <h3 class="h5">Chart Dashbord</h3>
                     </a>
                   </div>
-
-                  
-                  <div class="col-md-4">
-                    <a href="snake game/index.html" target="_blank">>
+                  <div class="col-md-4 task-item">
+                    <a href="snake game/index.html" target="_blank">
                       <img src="./assets/images/gamesnake.png" class="img-responsive" alt="" />
                       <h3 class="h5">Snake Game</h3>
                     </a>
                   </div>
-                  <div class="col-md-4">
-                    <a href="Chart Penjualan/index.html" target="_blank">>
+                  <div class="col-md-4 task-item">
+                    <a href="Chart Penjualan/index.html" target="_blank">
                       <img src="./assets/images/chartpenjualan.png" class="img-responsive" alt="" />
                       <h3 class="h5">Chart Penjualan</h3>
                     </a>
@@ -257,5 +256,22 @@
 
 -->
     <script type="text/javascript" src="./main.bc58148c.js"></script>
+
+    <script>
+      function searchTasks() {
+        const input = document.getElementById('searchInput');
+        const filter = input.value.toLowerCase();
+        const tasks = document.getElementsByClassName('task-item');
+
+        for (let i = 0; i < tasks.length; i++) {
+          const taskName = tasks[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+          if (taskName.includes(filter)) {
+            tasks[i].style.display = '';
+          } else {
+            tasks[i].style.display = 'none';
+          }
+        }
+      }
+    </script>
   </body>
 </html>
